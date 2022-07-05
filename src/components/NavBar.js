@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
@@ -32,7 +32,7 @@ export const NavBar = () => {
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" className="logo"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
@@ -45,11 +45,18 @@ export const NavBar = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="" /></a>
-              <a href="#"><img src={navIcon2} alt="" /></a>
-              <a href="#"><img src={navIcon3} alt="" /></a>
+              <a href="https://www.linkedin.com/in/firdeus-kasaj-38a7471b9/"><img src={navIcon1} alt="" /></a>
+              <a href="https://github.com/firdodev"><img src={navIcon2} alt="" /></a>
+              <a href="https://www.instagram.com/firdo.dev/"><img src={navIcon3} alt="" /></a>
             </div>
-            <button className="vvd" onClick={() => console.log('connect')}><span>Let’s Connect</span></button>
+            <button className="vvd" onClick={async () => 
+            {
+              var a = document.createElement("a");
+              a.href = "./cv.pdf";
+              a.setAttribute("download", "");
+              a.click();
+            }
+            }><span>Download CV</span></button>
           </span>
         </Navbar.Collapse>
       </Container>
